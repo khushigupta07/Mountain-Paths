@@ -32,4 +32,25 @@
 
 TEST_CASE("True == True", "") { REQUIRE(true == true); }
 
+TEST_CASE("Color class test", "[ColorTest]") {
+  Color test_color(3, 93, 169);
+  REQUIRE(test_color.green() == 93);
+  // Color new_color2(3, 93, 300);
+}
+TEST_CASE("Path class test", "[PathTest]") {
+  Path test_path(3, 0);
+  REQUIRE(test_path.length() == 3);
+  // test_path.inc_ele_change(-5);
+  test_path.set_loc(2, 0);
+}
+TEST_CASE("Elevation Dataset test", "[ElevationDataSetTest]") {
+  ElevationDataset test_elvdataset(
+      "/home/vagrant/src/mp-mountain-paths-khushigupta07/example-data/"
+      "ex_input_data/prompt_5w_2h.dat",
+      5,
+      2);
+  REQUIRE(test_elvdataset.get_data().at(0).at(1) == 20);
+  REQUIRE(test_elvdataset.get_data().at(1).at(3) == 18);
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////
